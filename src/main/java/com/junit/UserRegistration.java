@@ -2,8 +2,8 @@ package com.junit;
 
 /**
  * UC5- As a User need to follow pre-defined Password rules.
- * Rule1– minimum 8 Characters 
- * NOTE – All rules must be passed
+ * Rule1â€“ minimum 8 Characters 
+ * NOTE â€“ All rules must be passed
  */
 
 /**
@@ -71,6 +71,6 @@ public class UserRegistration {
 	 * @return -return to method created
 	 */
 	public boolean checkPassword(String password) {
-		return (password.matches("[0-9a-zA-Z]{8,}"));
+		return (password.matches("[a-zA-Z]{8,}"));
 	}
 }
