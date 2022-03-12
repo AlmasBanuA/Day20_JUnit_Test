@@ -1,0 +1,163 @@
+package com.junit;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+/**
+ * TestCases for validating FirstName 
+ * TestCases for validating LastName
+ * TestCases for validating EmailID
+ * TestCases for validating PhoneNumber
+ * TestCases for validating Password for rule 1-Having minimum 8 characters
+ * TestCases for validating Password for rule 2-Should have at least 1 Upper Case 
+ * TestCases for validating Password for rule 3-Should have at least 1 numeric number in the password
+ * TestCases for validating Password for rule 4-Should have Exactly 1 Special Character
+ * TestCases for validating all email samples provided separately
+ * Writing the JUnit Test for Happy as well as Sad test case.
+   - Happy Test Case validates the Entry Successfully
+   - Sad Test Cases fails the Entry
+ *  JUnit Parameterized Test to validate multiple entry for the Email Address.
+ */
+public class UserRegistrationTest {
+
+	@Test
+	/**
+	 * created method testingFirstName() to check firstname is valid or not
+	 */
+	public void testingFirstName() {
+		/**
+		 * Creating Object for UserRegistration class
+		 */
+		UserRegistration userRegistration = new UserRegistration();
+		/**
+		 * calling checkFName method to see firstname is valid
+		 */
+		boolean isFNameValid = userRegistration.checkFName("Almas");
+		Assert.assertTrue(isFNameValid);
+	}
+
+	@Test
+	/**
+	 * created method testFirstNameInvalidMustReturnFalse for false condition
+	 */
+	public void testFirstNameInvalidMustReturnFalse() {
+		UserRegistration userRegistration = new UserRegistration();
+		boolean isFnameValid = userRegistration.checkFName("almas");
+		Assert.assertFalse(isFnameValid);
+	}
+
+	/**
+	 * created method testingLastName() to check lastname is valid or not
+	 */
+	@Test
+	public void testLastNameValidMustReturnTrue() {
+		UserRegistration userRegistration = new UserRegistration();
+		/**
+		 * calling Lname method to see LastName is valid
+		 */
+		boolean isLnameValid = userRegistration.Lname("Advani");
+		Assert.assertTrue(isLnameValid);
+	}
+
+	/**
+	 * created method testLastNameInvalidMustReturnFalse for false condition
+	 */
+	@Test
+	public void testLastNameValidMustReturnFalse() {
+		UserRegistration userRegistration = new UserRegistration();
+		boolean isLnameINValid = userRegistration.Lname("advani");
+		Assert.assertFalse(isLnameINValid);
+	}
+
+	@Test
+	/**
+	 * created method testEmailId_MustReturnTrue() for true condition
+	 */
+	public void testEmailId_MustReturnTrue() {
+		UserRegistration userRegistration = new UserRegistration();
+		/**
+		 * calling checkEmail method to see mailId is valid
+		 */
+		boolean isEmailValid = userRegistration.checkEmail("almas.ab@gmail.com");
+		Assert.assertTrue(isEmailValid);
+	}
+
+	@Test
+	/**
+	 * created method testEmailId_MustReturnFalse() for false condition
+	 */
+
+	public void testEmailId_MustReturnFalse() {
+		UserRegistration userRegistration = new UserRegistration();
+		boolean isEmailInvalid = userRegistration.checkEmail("almas@.com");
+		Assert.assertFalse(isEmailInvalid);
+	}
+
+	@Test
+	/**
+	 * created testPhoneNumber_MustReturnTrue() for True condition
+	 */
+	public void testPhoneNumber_MustReturnTrue() {
+		UserRegistration userRegistration = new UserRegistration();
+		/**
+		 * calling checkPhoneNum method to see phoneNumber is valid
+		 */
+		boolean isPhoneNumberValid = userRegistration.checkPhoneNum("91 7903990740");
+		Assert.assertTrue(isPhoneNumberValid);
+	}
+
+	@Test
+	/**
+	 * created testPhoneNumber_MustReturnFalse() for False condition
+	 */
+	public void testPhoneNumber_MustReturnFalse() {
+		UserRegistration userRegistration = new UserRegistration();
+		boolean isPhoneNumberInValid = userRegistration.checkPhoneNum("7903990740");
+		Assert.assertFalse(isPhoneNumberInValid);
+	}
+
+	@Test
+	/**
+	 * created testPassword_MustReturnTrue() for True condition
+	 */
+	public void testPassword_MustReturnTrue() {
+		UserRegistration userRegistration = new UserRegistration();
+		/**
+		 * calling checkPassword method to see Password is valid
+		 */
+		boolean isPasswordValid = userRegistration.checkPassword("Abc@123gjyg");
+		Assert.assertTrue(isPasswordValid);
+	}
+
+	@Test
+	/**
+	 * created testPassword_MustReturnFalse() for False condition
+	 */
+	public void testPassword_MustReturnFalse() {
+		UserRegistration userRegistration = new UserRegistration();
+		boolean isPasswordInValid = userRegistration.checkPassword("abcdefghi");
+		Assert.assertFalse(isPasswordInValid);
+	}
+
+	@Test
+	/**
+	 * created method mood_Analyser_Test_Happy() as Happy Test Case validates the
+	 * Entry Successfully
+	 */
+	public void mood_Analyser_Test_Happy() {
+		UserRegistration userRegistration = new UserRegistration();
+		String isMoodHappy = userRegistration.moodAnalyzer("Almas", "Advani", "91 7903900074", "almas007.sm@gmail.com",
+				"Almas@2103");
+		Assert.assertEquals("HAPPY", isMoodHappy);
+	}
+
+	@Test
+	/**
+	 * created method mood_Analyser_Test_Sad() as Sad Test Cases fails the Entry
+	 */
+	public void mood_Analyser_Test_Sad() {
+		UserRegistration userRegistration = new UserRegistration();
+		String isMoodSad = userRegistration.moodAnalyzer("almas", "advani", "7903900074", "almas007@.com", "799235");
+		Assert.assertEquals("SAD", isMoodSad);
+	}
+}
