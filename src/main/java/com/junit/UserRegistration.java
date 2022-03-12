@@ -27,6 +27,8 @@ package com.junit;
  * UC10:- Write Junit Test for Happy as well as Sad test case.
  *      - Happy Test Case validates the Entry Successfully
  *      - Sad Test Cases fails the Entry
+ *      
+ * UC11:- JUnit Parameterized Test to validate multiple entry for the Email Address    
  */
 
 /**
